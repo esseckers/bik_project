@@ -1,4 +1,4 @@
-package com.example.cooler.phonebook;
+package com.example.cooler.phonebook.list;
 
 /**
  * Created by cooler on 28.10.2017.

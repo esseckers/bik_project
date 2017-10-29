@@ -5,6 +5,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+import com.example.cooler.phonebook.list.Contact;
+import com.example.cooler.phonebook.list.ContactsAdapter;
+
 import java.util.ArrayList;
 import java.util.List;
 

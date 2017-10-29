@@ -1,9 +1,12 @@
-package com.example.cooler.phonebook;
+package com.example.cooler.phonebook.list;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
+
+import com.example.cooler.phonebook.R;
 
 import java.util.List;
 
@@ -30,7 +33,12 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactHolder> {
 
     @Override
     public ContactHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new ContactHolder(LayoutInflater.from(context).inflate(R.layout.item_contact, null));
+        View view = LayoutInflater.from(context).inflate(R.layout.item_contact, null);
+        RecyclerView.LayoutParams lp =
+                new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+                        ViewGroup.LayoutParams.WRAP_CONTENT);
+        view.setLayoutParams(lp);
+        return new ContactHolder(view);
     }
 
     @Override
