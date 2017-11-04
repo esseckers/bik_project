@@ -1,10 +1,11 @@
-package com.example.cooler.phonebook;
+package com.example.cooler.phonebook.list;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+import com.example.cooler.phonebook.R;
 import com.example.cooler.phonebook.list.Contact;
 import com.example.cooler.phonebook.list.ContactsAdapter;
 
