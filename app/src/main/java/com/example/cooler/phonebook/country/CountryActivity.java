@@ -1,9 +1,11 @@
-package com.example.cooler.phonebook;
+package com.example.cooler.phonebook.country;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+
+import com.example.cooler.phonebook.R;
 
 import java.util.ArrayList;
 import java.util.List;

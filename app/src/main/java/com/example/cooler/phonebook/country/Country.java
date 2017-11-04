@@ -1,4 +1,4 @@
-package com.example.cooler.phonebook;
+package com.example.cooler.phonebook.country;
 
 /**
  * Created by cooler on 31.10.2017.

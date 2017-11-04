@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.Toast;
 
 import com.example.cooler.phonebook.R;
 
@@ -34,7 +36,21 @@ public class ProductActivity  extends AppCompatActivity {
         // получаем элемент RecyclerView
         RecyclerView namesList = (RecyclerView) findViewById(R.id.productList);
         namesList.setLayoutManager(new LinearLayoutManager(this));
-        ProductsAdapter adapter = new ProductsAdapter(this);
+        final ProductsAdapter adapter = new ProductsAdapter(this);
+        adapter.setProductDelete(new OnProductDelete() {
+            @Override
+            public void onDeleteProduct(Product product) {
+                adapter.removeProduct(product);
+                Toast.makeText(ProductActivity.this, product.getProductName() + "Элемент удален", Toast.LENGTH_SHORT).show();
+            }
+        });
+        findViewById(R.id.add_product).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                adapter.add(new Product(R.mipmap.ic_launcher, "30 rub", "tomatoes", "12", true));
+            }
+        });
+
         // устанавливаем для списка адаптер
         namesList.setAdapter(adapter);
         adapter.addAll(products);

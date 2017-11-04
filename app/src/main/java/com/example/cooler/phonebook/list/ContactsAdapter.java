@@ -18,6 +18,11 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactHolder> {
 
     private List<Contact> contacts;
     private Context context;
+    private OnItemDelete itemDelete;
+
+    public void setItemDelete(OnItemDelete itemDelete) {
+        this.itemDelete = itemDelete;
+    }
 
     public ContactsAdapter(Context context) {
         this.context = context;
@@ -28,6 +33,20 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactHolder> {
             this.contacts.clear();
         }
         this.contacts = contacts;
+        notifyDataSetChanged();
+    }
+
+    public void add(Contact contact) {
+        if (this.contacts != null) {
+            this.contacts.add(0,contact);
+        }
+        notifyDataSetChanged();
+    }
+
+    public void removeItem(Contact contact) {
+        if (this.contacts != null) {
+            this.contacts.remove(contact);
+        }
         notifyDataSetChanged();
     }
 
@@ -43,7 +62,7 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactHolder> {
 
     @Override
     public void onBindViewHolder(ContactHolder holder, int position) {
-        holder.setData(contacts.get(position));
+        holder.setData(contacts.get(position), itemDelete);
     }
 
     @Override

@@ -8,4 +8,16 @@
         android:id="@+id/productList"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+
+    <TextView
+        android:id="@+id/add_product"
+        android:layout_width="wrap_content"
+        android:text="Добавить контакт"
+        android:background="@android:color/holo_blue_light"
+        android:padding="10dp"
+        android:layout_gravity="bottom|end"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="16dp"
+        android:textColor="@android:color/black"
+        android:layout_height="wrap_content" />
 </FrameLayout>

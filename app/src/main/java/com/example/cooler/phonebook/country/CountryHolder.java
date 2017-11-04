@@ -1,10 +1,12 @@
-package com.example.cooler.phonebook;
+package com.example.cooler.phonebook.country;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.cooler.phonebook.R;
 
 /**
  * Created by cooler on 31.10.2017.

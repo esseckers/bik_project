@@ -1,4 +1,4 @@
-package com.example.cooler.phonebook;
+package com.example.cooler.phonebook.country;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -6,7 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.cooler.phonebook.product_list.ProductHolder;
+import com.example.cooler.phonebook.R;
 
 import java.util.List;
 

@@ -12,12 +12,13 @@ import com.example.cooler.phonebook.R;
  * Created by NewUser on 29.10.2017.
  */
 
-public class ProductHolder  extends RecyclerView.ViewHolder {
+public class ProductHolder extends RecyclerView.ViewHolder {
     private ImageView photo;
     private TextView productPrice;
     private TextView productName;
     private TextView productNumber;
     private CheckBox checkBox;
+    private View delete;
 
     public ProductHolder(View itemView) {
         super(itemView);
@@ -26,13 +27,22 @@ public class ProductHolder  extends RecyclerView.ViewHolder {
         productPrice = (TextView) itemView.findViewById(R.id.price);
         productNumber = (TextView) itemView.findViewById(R.id.id_product);
         checkBox = (CheckBox) itemView.findViewById(R.id.checkBox);
+        delete = itemView.findViewById(R.id.delete);
     }
 
-    public void setData(Product product) {
+    public void setData(final Product product, final OnProductDelete productDelete) {
         photo.setBackgroundResource(product.getPhotoRes());
         productName.setText(product.getProductName());
         productPrice.setText(product.getProductPrice());
         productNumber.setText(product.getProductNumber());
         checkBox.setChecked(product.getCheckBox());
+        delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (productDelete != null) {
+                    productDelete.onDeleteProduct(product);
+                }
+            }
+        });
     }
 }

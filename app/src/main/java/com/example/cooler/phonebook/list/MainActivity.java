@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.Toast;
 
 import com.example.cooler.phonebook.R;
 import com.example.cooler.phonebook.list.Contact;
@@ -41,7 +43,21 @@ public class MainActivity extends AppCompatActivity {
         // получаем элемент RecyclerView
         RecyclerView namesList = (RecyclerView) findViewById(R.id.my_recycler_view);
         namesList.setLayoutManager(new LinearLayoutManager(this));
-        ContactsAdapter adapter = new ContactsAdapter(this);
+        final ContactsAdapter adapter = new ContactsAdapter(this);
+        adapter.setItemDelete(new OnItemDelete() {
+            @Override
+            public void onDeleteItem(Contact contact) {
+                adapter.removeItem(contact);
+                Toast.makeText(MainActivity.this, contact.getName() +
+                        " элемент удален", Toast.LENGTH_LONG).show();
+            }
+        });
+        findViewById(R.id.add_item).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                adapter.add(new Contact(R.mipmap.ic_launcher, "sdgsdgsdgsdg", "Takoy"));
+            }
+        });
         // устанавливаем для списка адаптер
         namesList.setAdapter(adapter);
         adapter.addAll(contacts);

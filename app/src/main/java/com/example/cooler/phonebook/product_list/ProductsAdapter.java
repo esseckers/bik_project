@@ -19,6 +19,10 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductHolder> {
 
     private List<Product> products;
     private Context context;
+    private OnProductDelete productDelete;
+
+    public void setProductDelete (OnProductDelete productDelete){
+        this.productDelete = productDelete; }
 
     public ProductsAdapter(Context context) {
         this.context = context;
@@ -29,6 +33,20 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductHolder> {
             this.products.clear();
         }
         this.products = products;
+        notifyDataSetChanged();
+    }
+
+    public void add (Product product) {
+        if (this.products != null) {
+            this.products.add(0,product);
+        }
+        notifyDataSetChanged();
+    }
+
+    public void removeProduct(Product product){
+        if (this.products != null) {
+            this.products.remove(product);
+        }
         notifyDataSetChanged();
     }
 
@@ -44,7 +62,7 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductHolder> {
 
     @Override
     public void onBindViewHolder(ProductHolder holder, int position) {
-        holder.setData(products.get(position));
+        holder.setData(products.get(position), productDelete);
     }
 
     @Override
