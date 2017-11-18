@@ -5,7 +5,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+import com.example.cooler.phonebook.AbstractActivity;
 import com.example.cooler.phonebook.R;
+import com.example.cooler.phonebook.product_list.ProductActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +16,7 @@ import java.util.List;
  * Created by cooler on 31.10.2017.
  */
 
-public class CountryActivity extends AppCompatActivity {
+public class CountryActivity extends AbstractActivity {
     private static List<Country> countries = new ArrayList<>();
 
     static {
@@ -37,6 +39,11 @@ public class CountryActivity extends AppCompatActivity {
         CountryAdapter adapter = new CountryAdapter(this);
         countriesList.setAdapter(adapter);
         adapter.addAll(countries);
+    }
+
+    @Override
+    protected Class<? extends AppCompatActivity> nextActivityClass() {
+        return ProductActivity.class;
     }
 }
 

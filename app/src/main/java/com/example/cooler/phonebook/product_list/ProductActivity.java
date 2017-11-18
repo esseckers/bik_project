@@ -7,7 +7,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.cooler.phonebook.AbstractActivity;
 import com.example.cooler.phonebook.R;
+import com.example.cooler.phonebook.list.MainActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +18,7 @@ import java.util.List;
  * Created by NewUser on 29.10.2017.
  */
 
-public class ProductActivity  extends AppCompatActivity {
+public class ProductActivity  extends AbstractActivity {
 
     private static List<Product> products = new ArrayList<>();
 
@@ -54,6 +56,11 @@ public class ProductActivity  extends AppCompatActivity {
         // устанавливаем для списка адаптер
         namesList.setAdapter(adapter);
         adapter.addAll(products);
+    }
+
+    @Override
+    protected Class<? extends AppCompatActivity> nextActivityClass() {
+        return MainActivity.class;
     }
 }
 

@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">phonebook</string>
     <string name="img_desc">img_desc</string>
+    <string name="confirm_text">Вы уверены, что хотите удалить контактное лицо</string>
+    <string name="dialog_title">Удаление контактного лица</string>
 </resources>
